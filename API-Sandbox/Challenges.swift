@@ -40,11 +40,18 @@ internal func exerciseOne() {
      call at <cell phone number>."
      
      */
+    let lastName = userData["results"][0]["name"]["last"].stringValue
+    let streetString = userData["results"][0]["location"]["street"].stringValue
+    let cityString = userData["results"][0]["location"]["city"].stringValue
+    let stateString = userData["results"][0]["location"]["state"].stringValue
+    let postCodeNum = userData["results"][0]["location"]["postcode"].intValue
+    let titleString = userData["results"][0]["name"]["title"].stringValue
     
+    let emailString = userData["results"][0]["email"].stringValue
+    let phoneString = userData["results"][0]["phone"].stringValue
     
-    
-    
-    
+    print("\(firstName) \(lastName) lives at \(streetString) in \(cityString), \(stateString), \(postCodeNum). If you want to contact \(titleString). \(lastName), you can email \(emailString) or call at \(phoneString)")
+
 }
 
 internal func exerciseTwo() {
@@ -67,8 +74,9 @@ internal func exerciseTwo() {
     let topMovie = Movie(json: topMovieData)
     
     // Uncomment this print statement when you are ready to check your code!
+    // test 1
     
-//    print("The top movie is \(topMovie.name) by \(topMovie.rightsOwner). It costs $\(topMovie.price) and was released on \(topMovie.releaseDate). You can view it on iTunes here: \(topMovie.link)")
+    print("The top movie is \(topMovie.name) by \(topMovie.rightsOwner). It costs $\(topMovie.price) and was released on \(topMovie.releaseDate). You can view it on iTunes here: \(topMovie.link)")
 }
 
 internal func exerciseThree() {
@@ -95,8 +103,9 @@ internal func exerciseThree() {
      */
     var allMovies: [Movie] = []
     
-    
-    
+    for movieJSON in allMoviesData {
+        allMovies.append(Movie(json: movieJSON))
+    }
     
     /*
      
@@ -105,9 +114,21 @@ internal func exerciseThree() {
      contains the `String` "Disney". Iterate over all the values in `allMovies` to check!
      
      */
-//    print("The following movies are Disney movies:")
+    print("The following movies are Disney movies:")
     
-    
+    for movie in allMovies {
+//        if movie.rightsOwner.localizedCaseInsensitiveContainsString("disney") {
+//            print(movie.name)
+//        }
+//        let lowerCase = movie.rightsOwner.lowercaseString
+//        if lowerCase.containsString("Disney".lowercaseString) {
+//            print(movie.name)
+//        }
+        
+        if movie.rightsOwner.containsString("Disney") {
+            print(movie.name)
+        }
+    }
     
     
     /*
@@ -116,10 +137,14 @@ internal func exerciseThree() {
      movie that costs less than $15. Iterate over all the values in `allMovies` to check!
      
      */
-//    print("The following movies are cost less than $15:")
     
+    print("\nThe following movies are cost less than $15:")
     
-    
+    for movie in allMovies {
+        if (movie.price < 15.00) {
+            print("\(movie.name) : $\(movie.price)")
+        }
+    }
     
     /*
      
@@ -127,7 +152,13 @@ internal func exerciseThree() {
      each movie released in 2016. Iterate over all the values in `allMovies` to check!
      
      */
-//    print("The following movies were released in 2016:")
+    print("\nThe following movies were released in 2016:")
+    
+    for movie in allMovies {
+        if (movie.releaseDate.containsString("2016")) {
+            print("\(movie.name) was release on \(movie.releaseDate)")
+        }
+    }
     
     
     
