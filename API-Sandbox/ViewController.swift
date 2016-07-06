@@ -19,14 +19,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var getMovieButton: UIButton!
+    
+    var randomMovie: Movie! {
+        didSet { //
+        }
+    }
+    
+    var json: JSON!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        exerciseOne()
-        exerciseTwo()
-        exerciseThree()
+//        exerciseOne()
+//        exerciseTwo()
+//        exerciseThree()
         
         let apiToContact = "https://itunes.apple.com/us/rss/topmovies/limit=25/json"
         // This code will call the iTunes top 25 movies endpoint listed above
@@ -34,17 +42,39 @@ class ViewController: UIViewController {
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                    let json = JSON(value)
+                    self.json = JSON(value)
                     
                     // Do what you need to with JSON here!
                     // The rest is all boiler plate code you'll use for API requests
                     
+                    // + instance variable of Movie to this V.C.
+                    // Parse Json to grab a random movieJSON
+                    // use arc4random_uniform(upperBound) 0 to < upperBound
+                    // takes UInt32 cast Int
+                    // create a Movie object 
+                    // Use Movie object to populate UIViewController
                     
+                    self.setUpRandomMovie(self.json)
                 }
             case .Failure(let error):
                 print(error)
             }
         }
+    }
+    
+    private func setUpRandomMovie(json: JSON) {
+        let jsonDataArray = json["feed"]["entry"].arrayValue
+        let ranNumUInt32 = arc4random_uniform(UInt32(jsonDataArray.count * 8))
+        let ranInt = Int(ranNumUInt32 % 25)
+        self.randomMovie = Movie(json: jsonDataArray[ranInt])
+        
+        self.movieTitleLabel.text = self.randomMovie.name
+        self.rightsOwnerLabel.text = self.randomMovie.rightsOwner
+        self.releaseDateLabel.text = self.randomMovie.releaseDate
+        self.priceLabel.text = String(self.randomMovie.price)
+        loadPoster(randomMovie.posterURL)
+        
+        print("index position: \(ranInt)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,9 +87,19 @@ class ViewController: UIViewController {
         posterImageView.af_setImageWithURL(NSURL(string: urlString)!)
     }
     
+    
+    // MARK: Actions
+    
     @IBAction func viewOniTunesPressed(sender: AnyObject) {
-        
+        print(randomMovie)
+//        UIApplication.sharedApplication().openURL(NSURL(string: "http://www.stackoverflow.com")!)
+        UIApplication.sharedApplication().openURL(NSURL(string: randomMovie.link)!)
     }
+    
+    @IBAction func getRandomMovie(sender: UIButton) {
+        self.setUpRandomMovie(self.json)
+    }
+    
     
 }
 

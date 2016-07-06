@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lg8-f5-yNi">
-                                <rect key="frame" x="40" y="60" width="520" height="330"/>
+                                <rect key="frame" x="40" y="60" width="520" height="370"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-Ux-HI7">
                                         <rect key="frame" x="218" y="0.0" width="84" height="20"/>
@@ -28,7 +28,7 @@
                                             <constraint firstAttribute="height" constant="20" id="YnN-bf-hOJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rights Owner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmT-q5-Xb5">
@@ -37,7 +37,7 @@
                                             <constraint firstAttribute="height" constant="20" id="n6b-2w-raZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIc-qC-hJx">
@@ -46,7 +46,7 @@
                                             <constraint firstAttribute="height" constant="20" id="zUq-Wa-IOJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZ8-j6-gmu">
@@ -55,7 +55,7 @@
                                             <constraint firstAttribute="height" constant="20" id="udQ-K5-Zge"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-Mt-Pyf">
@@ -73,6 +73,13 @@
                                             <action selector="viewOniTunesPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="giq-ny-Gff"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gu0-f4-L5S">
+                                        <rect key="frame" x="197" y="340" width="127" height="30"/>
+                                        <state key="normal" title="Get another movie"/>
+                                        <connections>
+                                            <action selector="getRandomMovie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8gp-UO-hE7"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -85,6 +92,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="getMovieButton" destination="Gu0-f4-L5S" id="alR-gI-h7V"/>
                         <outlet property="movieTitleLabel" destination="E9K-Ux-HI7" id="Fwn-ht-fJj"/>
                         <outlet property="posterImageView" destination="E5c-Mt-Pyf" id="VxY-Kb-919"/>
                         <outlet property="priceLabel" destination="KZ8-j6-gmu" id="oAq-M1-Wd3"/>
