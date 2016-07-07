@@ -22,11 +22,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var getMovieButton: UIButton!
     
     var randomMovie: Movie! {
-        didSet { //
+        didSet {
+            self.movieTitleLabel.text = self.randomMovie.name
+            self.rightsOwnerLabel.text = self.randomMovie.rightsOwner
+            self.releaseDateLabel.text = self.randomMovie.releaseDate
+            self.priceLabel.text = String(self.randomMovie.price)
+            loadPoster(randomMovie.posterURL)
         }
+        
     }
-    
+
     var json: JSON!
+
+    
+    func getMovie() -> Movie {
+        return randomMovie
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,14 +78,9 @@ class ViewController: UIViewController {
         let ranNumUInt32 = arc4random_uniform(UInt32(jsonDataArray.count * 8))
         let ranInt = Int(ranNumUInt32 % 25)
         self.randomMovie = Movie(json: jsonDataArray[ranInt])
-        
-        self.movieTitleLabel.text = self.randomMovie.name
-        self.rightsOwnerLabel.text = self.randomMovie.rightsOwner
-        self.releaseDateLabel.text = self.randomMovie.releaseDate
-        self.priceLabel.text = String(self.randomMovie.price)
-        loadPoster(randomMovie.posterURL)
-        
-        print("index position: \(ranInt)")
+
+//        print("index position: \(ranInt)")
+//        print(randomMovie)
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,6 +106,25 @@ class ViewController: UIViewController {
         self.setUpRandomMovie(self.json)
     }
     
+//    @IBAction func imageTapped(sender: AnyObject) {
+//        
+//    }
+    
+    // Left empty on purpose
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            if identifier == "displayDetails" {
+                
+                let displayDetailsController = segue.destinationViewController as! DetailedMovieView
+                
+                displayDetailsController.deatailsMovie = self.randomMovie
+            }
+        }
+    }
     
 }
 
