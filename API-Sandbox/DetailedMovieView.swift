@@ -36,6 +36,8 @@ class DetailedMovieView: UIViewController {
             movieLabel.text = movie.name
             moviePoster.af_setImageWithURL(NSURL(string: movie.posterURL)!)
             movieSummary.text = movie.summary
+            
+            print("\nmovie summary: \(movieSummary.text)")
 //            moviePoster.af_setImageViewWithURL(movie.posterURL)
             
         } else {
