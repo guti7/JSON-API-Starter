@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
+    
     @IBOutlet weak var getMovieButton: UIButton!
     
     var randomMovie: Movie! {
@@ -28,16 +29,13 @@ class ViewController: UIViewController {
             self.releaseDateLabel.text = self.randomMovie.releaseDate
             self.priceLabel.text = String(self.randomMovie.price)
             loadPoster(randomMovie.posterURL)
+            self.randomMovie.movieImage = posterImageView.image
         }
         
     }
 
     var json: JSON!
-
     
-    func getMovie() -> Movie {
-        return randomMovie
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +76,8 @@ class ViewController: UIViewController {
         let ranNumUInt32 = arc4random_uniform(UInt32(jsonDataArray.count * 8))
         let ranInt = Int(ranNumUInt32 % 25)
         self.randomMovie = Movie(json: jsonDataArray[ranInt])
-
-//        print("index position: \(ranInt)")
-//        print(randomMovie)
+        loadPoster(self.randomMovie.posterURL)
+        self.randomMovie.movieImage = posterImageView.image
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,6 +88,7 @@ class ViewController: UIViewController {
     // Updates the image view when passed a url string
     func loadPoster(urlString: String) {
         posterImageView.af_setImageWithURL(NSURL(string: urlString)!)
+        
     }
     
     
@@ -102,13 +100,11 @@ class ViewController: UIViewController {
         UIApplication.sharedApplication().openURL(NSURL(string: randomMovie.link)!)
     }
     
+    // called when get another movie button is pressed
     @IBAction func getRandomMovie(sender: UIButton) {
         self.setUpRandomMovie(self.json)
     }
     
-//    @IBAction func imageTapped(sender: AnyObject) {
-//        
-//    }
     
     // Left empty on purpose
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
@@ -121,7 +117,8 @@ class ViewController: UIViewController {
                 
                 let displayDetailsController = segue.destinationViewController as! DetailedMovieView
                 
-                displayDetailsController.deatailsMovie = self.randomMovie
+                displayDetailsController.detailsMovie = self.randomMovie
+                
             }
         }
     }

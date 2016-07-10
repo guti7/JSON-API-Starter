@@ -16,7 +16,7 @@ class DetailedMovieView: UIViewController {
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var movieSummary: UITextView!
     
-    var deatailsMovie : Movie!
+    var detailsMovie : Movie!
     
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -32,13 +32,15 @@ class DetailedMovieView: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if let movie = deatailsMovie {
+        if let movie = detailsMovie {
             movieLabel.text = movie.name
-            moviePoster.af_setImageWithURL(NSURL(string: movie.posterURL)!)
             movieSummary.text = movie.summary
-            
-            print("\nmovie summary: \(movieSummary.text)")
-//            moviePoster.af_setImageViewWithURL(movie.posterURL)
+            print("details movie poster \(moviePoster)")
+            //moviePoster.image = movie.movieImage!
+            print(movie.movieImage!)
+            moviePoster.af_setImageWithURL(NSURL(string: movie.posterURL)!)
+            print(movie.movieImage!)
+            print("details movie poster \(moviePoster)")
             
         } else {
             movieLabel.text = "Oops!"

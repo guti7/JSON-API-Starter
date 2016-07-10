@@ -17,6 +17,7 @@ struct Movie {
     let link: String
     let releaseDate: String
     let posterURL: String
+    var movieImage: UIImage!
     
     
     init(json: JSON) {
