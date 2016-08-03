@@ -159,8 +159,4 @@ internal func exerciseThree() {
             print("\(movie.name) was release on \(movie.releaseDate)")
         }
     }
-    
-    
-    
-    
 }

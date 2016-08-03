@@ -18,6 +18,7 @@
 		BC7C846B1D20C2B000BA19ED /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7C846A1D20C2B000BA19ED /* Movie.swift */; };
 		BC7C846D1D20CEEB00BA19ED /* Challenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7C846C1D20CEEB00BA19ED /* Challenges.swift */; };
 		CC3B86F91D2DC9E9003485B4 /* DetailedMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B86F81D2DC9E9003485B4 /* DetailedMovieView.swift */; };
+		CCD497AD1D51390C00BD36C3 /* AllMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD497AC1D51390C00BD36C3 /* AllMoviesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C27B705B88ACEF3AA01739F8 /* Pods-API-Sandbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API-Sandbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-API-Sandbox/Pods-API-Sandbox.release.xcconfig"; sourceTree = "<group>"; };
 		C6B5D9918DBA7F38173FB419 /* Pods-API-Sandbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API-Sandbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-API-Sandbox/Pods-API-Sandbox.debug.xcconfig"; sourceTree = "<group>"; };
 		CC3B86F81D2DC9E9003485B4 /* DetailedMovieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedMovieView.swift; sourceTree = "<group>"; };
+		CCD497AC1D51390C00BD36C3 /* AllMoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMoviesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,12 +77,13 @@
 				BC7C846C1D20CEEB00BA19ED /* Challenges.swift */,
 				BC7C846A1D20C2B000BA19ED /* Movie.swift */,
 				BC7C84551D1D488300BA19ED /* ViewController.swift */,
+				CCD497AC1D51390C00BD36C3 /* AllMoviesViewController.swift */,
+				CC3B86F81D2DC9E9003485B4 /* DetailedMovieView.swift */,
 				BC7C84571D1D488300BA19ED /* Main.storyboard */,
 				BC7C845C1D1D488300BA19ED /* LaunchScreen.storyboard */,
 				BC7C84651D1D677800BA19ED /* JSON */,
 				BC7C845A1D1D488300BA19ED /* Assets.xcassets */,
 				BC7C845F1D1D488300BA19ED /* Info.plist */,
-				CC3B86F81D2DC9E9003485B4 /* DetailedMovieView.swift */,
 			);
 			path = "API-Sandbox";
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				CC3B86F91D2DC9E9003485B4 /* DetailedMovieView.swift in Sources */,
 				BC7C84541D1D488300BA19ED /* AppDelegate.swift in Sources */,
 				BC7C846B1D20C2B000BA19ED /* Movie.swift in Sources */,
+				CCD497AD1D51390C00BD36C3 /* AllMoviesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
