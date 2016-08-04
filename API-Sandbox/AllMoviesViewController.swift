@@ -18,7 +18,6 @@ class AllMoviesViewController: UITableViewController {
     
     var json : JSON!
     var jsonDataArray : [JSON]!
-    //let cellIdentifier = "CellIdentifier"
     
     
     override func viewDidLoad() {
@@ -35,14 +34,9 @@ class AllMoviesViewController: UITableViewController {
                     self.json = JSON(value)
                     self.jsonDataArray = self.json["feed"]["entry"].arrayValue
                     
-                    // Do what you need to with JSON here!
-                    // The rest is all boiler plate code you'll use for API requests
-                   
-                    dispatch_async(dispatch_get_main_queue(), { 
+                    dispatch_async(dispatch_get_main_queue(), {
                         self.tableView.reloadData()
                     })
-                    
-                    
                 }
             case .Failure(let error):
                 print(error)
@@ -77,17 +71,16 @@ class AllMoviesViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-//        if let movies = self.jsonDataArray? {
-//            var movie = movies[indexPath.row]
-        
+
         let movie = self.jsonDataArray[indexPath.row]
             
-            cell.textLabel?.text = movie["im:name"]["label"].stringValue
+        cell.textLabel?.text = movie["im:name"]["label"].stringValue
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         performSegueWithIdentifier(segueDetailsFromMovies, sender: self)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
@@ -137,11 +130,10 @@ class AllMoviesViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let movieJson = self.jsonDataArray[indexPath.row]
                 let movie = Movie(json: movieJson)
-                
                 let destinationController = segue.destinationViewController as! DetailedMovieView
                 
                 destinationController.detailsMovie  = movie
-                destinationController.showButton = false
+                destinationController.isFromMovie = false
             }
         }
     }

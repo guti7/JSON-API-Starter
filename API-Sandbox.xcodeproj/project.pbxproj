@@ -17,7 +17,7 @@
 		BC7C84691D1D677800BA19ED /* Random-User.json in Resources */ = {isa = PBXBuildFile; fileRef = BC7C84671D1D677800BA19ED /* Random-User.json */; };
 		BC7C846B1D20C2B000BA19ED /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7C846A1D20C2B000BA19ED /* Movie.swift */; };
 		BC7C846D1D20CEEB00BA19ED /* Challenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7C846C1D20CEEB00BA19ED /* Challenges.swift */; };
-		CC3B86F91D2DC9E9003485B4 /* DetailedMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B86F81D2DC9E9003485B4 /* DetailedMovieView.swift */; };
+		CC9BBC491D53203A00ACDB6C /* DetailedMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B86F81D2DC9E9003485B4 /* DetailedMovieView.swift */; };
 		CCD497AD1D51390C00BD36C3 /* AllMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD497AC1D51390C00BD36C3 /* AllMoviesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -241,10 +241,10 @@
 			files = (
 				BC7C84561D1D488300BA19ED /* ViewController.swift in Sources */,
 				BC7C846D1D20CEEB00BA19ED /* Challenges.swift in Sources */,
-				CC3B86F91D2DC9E9003485B4 /* DetailedMovieView.swift in Sources */,
 				BC7C84541D1D488300BA19ED /* AppDelegate.swift in Sources */,
 				BC7C846B1D20C2B000BA19ED /* Movie.swift in Sources */,
 				CCD497AD1D51390C00BD36C3 /* AllMoviesViewController.swift in Sources */,
+				CC9BBC491D53203A00ACDB6C /* DetailedMovieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
