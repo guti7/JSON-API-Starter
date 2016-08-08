@@ -17,11 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         // the back bar color
-        UISearchBar.appearance().barTintColor = UIColor.magicPurp()
-        // the components outside the bar
-        UISearchBar.appearance().tintColor = UIColor.whiteColor()
-        // component inside the search bar text field
-        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreen()
+//        UISearchBar.appearance().barTintColor = UIColor.magicPurp()
+//        // the components outside the bar
+//        UISearchBar.appearance().tintColor = UIColor.whiteColor()
+//        // component inside the search bar text field
+//        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreen()
         
         return true
     }

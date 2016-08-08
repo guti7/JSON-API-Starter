@@ -35,7 +35,7 @@ class AllMoviesViewController: UITableViewController {
         
        // self.jsonDataArray = [JSON]()// [] //Array() // Array<JSON>()
         
-        let apiToContact = "https://itunes.apple.com/us/rss/topmovies/limit=25/json"
+        let apiToContact = "https://itunes.apple.com/us/rss/topmovies/limit=200/json"
         // This code will call the iTunes top 25 movies endpoint listed above
         Alamofire.request(.GET, apiToContact).validate().responseJSON() { response in
             switch response.result {

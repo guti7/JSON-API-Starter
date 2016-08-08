@@ -30,6 +30,7 @@ class DetailedMovieView: UIViewController {
             movieLabel.text = movie.name
             movieSummary.text = movie.summary
             moviePoster.image = movie.movieImage
+            backgroundImageView.image = movie.movieImage
             if isFromMovie {
                 backButton.layer.borderColor = UIColor.whiteColor().CGColor
             } else { // all movies

@@ -21,8 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var backgroundView: UIImageView!
 
-    
-    
+    @IBOutlet weak var buttonViewOnItunes: UIButton!
     @IBOutlet weak var getMovieButton: UIButton!
     
     var randomMovie: Movie! {
@@ -42,9 +41,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        getMovieButton.layer.borderColor = UIColor.whiteColor().CGColor
         
+        buttonViewOnItunes.layer.borderColor = UIColor.whiteColor().CGColor
         
-        let apiToContact = "https://itunes.apple.com/us/rss/topmovies/limit=25/json"
+        let apiToContact = "https://itunes.apple.com/us/rss/topmovies/limit=100/json"
         // This code will call the iTunes top 25 movies endpoint listed above
         Alamofire.request(.GET, apiToContact).validate().responseJSON() { response in
             switch response.result {
@@ -61,13 +62,13 @@ class ViewController: UIViewController {
             }
         }
         
-        applyBlurEffect(.Light)
+        applyBlurEffect(.Dark)
     }
     
     private func setUpRandomMovie() {
         //jsonDataArray = json["feed"]["entry"].arrayValue
         let ranNumUInt32 = arc4random_uniform(UInt32(jsonDataArray.count * 8))
-        let ranInt = Int(ranNumUInt32 % 25)
+        let ranInt = Int(ranNumUInt32 % 100)
         self.randomMovie = Movie(json: jsonDataArray[ranInt])
         loadPoster(randomMovie.posterURL)
     }
